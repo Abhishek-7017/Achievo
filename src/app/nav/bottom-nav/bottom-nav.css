@@ -1,0 +1,32 @@
+.bottom-nav {
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    padding: 10px 20px;
+    display: flex;
+    gap: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+.icon-label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.icon-label:hover{
+    transform: scale(1.25);
+    color: #F96167;
+}
+mat-icon{
+    font-size: 40px;
+    height: 40px;
+    width: 40px;
+}
