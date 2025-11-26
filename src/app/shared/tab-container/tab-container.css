@@ -1,0 +1,25 @@
+.tab-list{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.tab{
+    padding: 10px 26px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    background: #eee;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+.selected{
+    background: #ff8d8d;
+    color: white;
+    font-weight: 600;
+}

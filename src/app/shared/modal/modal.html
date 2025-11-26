@@ -1,13 +1,8 @@
 <div [ngClass]="{hidden: !modalService.isModalOpen(modalId)}">
-    <div class="modal" id="loginModal">
+    <div class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeModalBtn" (click)="closeModal()">&times;</span>
-            <h2>Login</h2>
-            <form>
-                <input type="text" placeholder="Username" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-            </form>
+            <ng-content></ng-content>
         </div>
     </div>
 </div>

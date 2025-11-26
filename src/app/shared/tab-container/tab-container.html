@@ -1,1 +1,6 @@
-<p>tab-container works!</p>
+<ul class="tab-list">
+    <li  *ngFor="let tab of tabs">
+        <a class="tab" href="#" [ngClass]="{'selected':tab.active,'un-selected':!tab.active}" (click)="selectTab(tab)">{{tab.tabTitle}}</a>
+    </li>
+</ul>
+<ng-content></ng-content>

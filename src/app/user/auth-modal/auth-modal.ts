@@ -2,10 +2,13 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ModalService } from '../../services/modal.service';
 import { Modal } from '../../shared/modal/modal';
 import { TabContainer } from '../../shared/tab-container/tab-container';
+import { Tab } from '../../shared/tab/tab';
+import { Login } from '../login/login';
+import { Register } from "../register/register";
 
 @Component({
   selector: 'app-auth-modal',
-  imports: [Modal,TabContainer],
+  imports: [Modal, TabContainer, Tab, Login, Register],
   templateUrl: './auth-modal.html',
   styleUrl: './auth-modal.css'
 })
