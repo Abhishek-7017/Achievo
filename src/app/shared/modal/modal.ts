@@ -14,6 +14,6 @@ export class Modal {
   constructor(public modalService:ModalService){}
 
   closeModal(){
-    this.modalService.toggleModal('auth')
+    this.modalService.toggleModal('auth');
   }
 }

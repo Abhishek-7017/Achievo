@@ -1,27 +1,18 @@
-<form>
+<form #registerForm="ngForm" (submit)="register(registerForm)">
     <div class="input-field">
-        <label >Name</label>
-        <input type="text" placeholder="Name" required>
-    </div>
-    <div class="input-field">
-        <label >Email</label>
-        <input type="text" placeholder="Email" required>
-    </div>
-    <div class="input-field">
-        <label >Age</label>
-        <input type="text" placeholder="Age" required>
+        <label >User Name</label>
+        <input type="text" placeholder="UserName" required ngModel name="userName">
     </div>
     <div class="input-field">
         <label>Password:</label>
-        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Password" required ngModel name="password" [(ngModel)]="password">
     </div>
     <div class="input-field">
         <label>Confirm Password:</label>
-        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Password" required ngModel name="confirmPassword" [(ngModel)]="confirmPassword" (ngModelChange)="CheckPasswords()">
     </div>
-    <div class="input-field">
-        <label>Phone Number:</label>
-        <input type="text" placeholder="Phone no." required>
-    </div>
+    @if(passwordMismatch){
+        <div class="warning-text">Passwords do not match</div>
+    }
     <button type="submit">Register</button>
 </form>

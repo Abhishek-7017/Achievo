@@ -1,11 +1,14 @@
 <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
     <div class="input-field">
-        <label >Email:</label>
-        <input type="text" placeholder="Email" required name="email" ngModel>
+        <label >User Name</label>
+        <input type="text" placeholder="User Name" required name="userName" ngModel>
     </div>
     <div class="input-field">
         <label>Password:</label>
         <input type="password" placeholder="Password" required name="password" ngModel>
     </div>
+    @if(invalidPassword){
+        <div class="warning-text">Invalid User Name or Password</div>
+    }
     <button type="submit">Login</button>
 </form>

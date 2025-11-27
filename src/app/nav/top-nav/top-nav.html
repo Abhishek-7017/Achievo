@@ -1,7 +1,13 @@
 <!-- Top Navigation -->
 <header class="top-nav">
 <div class="logo">Achievo</div>
+
 <div class="auth-links">
-    <a href="#" (click)="openModal($event)">Login/SignUp</a>
+    @if (!isLoggedIn()) {
+        <a href="#" (click)="openModal($event)">Login/SignUp</a>
+    }
+    @else{
+        <a href="#" (click)="logout()">Logout</a>
+    }
 </div>
 </header>

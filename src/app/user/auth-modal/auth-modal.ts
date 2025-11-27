@@ -14,6 +14,7 @@ import { Register } from "../register/register";
 })
 export class AuthModal implements OnInit,OnDestroy {
 
+
   constructor(private modal:ModalService){}
   
   ngOnInit(): void {
@@ -23,5 +24,8 @@ export class AuthModal implements OnInit,OnDestroy {
   ngOnDestroy(): void {
     this.modal.unregister('auth');
   }
-
+  closeModal():void{
+    this.modal.toggleModal('auth');
+    this.modal.unregister('auth');
+  }
 }

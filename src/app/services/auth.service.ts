@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class AuthService {
 
   private baseUrl = 'http://localhost:5159/api/auth';
 
-  constructor(private http: HttpClient) {}
+  constructor(@Inject(PLATFORM_ID) private platformId:any, private http: HttpClient) {}
 
   // -------------------- LOGIN --------------------
   login(credentials: { userName: string; password: string }): Observable<any> {
@@ -22,8 +23,7 @@ export class AuthService {
     );
   }
 
-  // -------------------- REGISTER --------------------
-  register(data: { name: string; email: string; password: string }): Observable<any> {
+  register(data: { userName: string; password: string }): Observable<any> {
     return this.http.post(`${this.baseUrl}/register`, data).pipe(
       tap((res: any) => {
         if (res?.accessToken) {
@@ -40,6 +40,13 @@ export class AuthService {
     const payload = JSON.parse(atob(token.split('.')[1]));
     const exp = payload.exp * 1000;
     return Date.now() > exp;
+  }
+
+  isLoggedIn():boolean{
+    if(isPlatformBrowser(this.platformId)){
+      return !!this.getToken();
+    }
+    return false;
   }
 
   logout() {
