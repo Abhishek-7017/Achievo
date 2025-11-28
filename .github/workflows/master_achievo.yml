@@ -48,7 +48,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: angular-app
-          path: ./dist/Achievo
+          path: .
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
