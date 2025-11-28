@@ -1,0 +1,82 @@
+<div class="dashboard">
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <div class="content-header">
+      <h1>Profile</h1>
+
+      <div class="user-mini">
+        <img class="avatar-sm" src="./Sample_profile.png" alt="Avatar">
+        <span>{{ user.firstName }}</span>
+      </div>
+    </div>
+
+    <!-- PROFILE SECTIONS -->
+    <div class="grid">
+
+      <!-- Profile Card -->
+      <section class="card">
+        <h3>Your profile</h3>
+        <p class="joined">Joined {{ user.joined }}</p>
+
+        <div class="profile-flex">
+          <img class="avatar-lg" [src]="user.profilePic">
+
+          <div>
+            <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+            <button class="edit-btn">Edit</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Address Card -->
+      <section class="card">
+        <h3>Address</h3>
+        <p>{{ user.address }}</p>
+        <p>{{ user.city }}, {{ user.state }} {{ user.zip }}</p>
+        <p>{{ user.country }}</p>
+      </section>
+
+      <!-- Emails -->
+      <section class="card">
+        <h3>Emails</h3>
+        <div class="field-row">
+          <span>{{ user.email }}</span>
+          <button class="add-btn">Add Email</button>
+        </div>
+      </section>
+
+      <!-- Phone Number -->
+      <section class="card">
+        <h3>Phone Number</h3>
+        <div class="field-row">
+          <span>{{ user.phone }}</span>
+          <button class="add-btn">Add Phone</button>
+        </div>
+      </section>
+
+      <!-- Account Options -->
+      <section class="card full">
+        <h3>Account Options</h3>
+
+        <div class="info-grid">
+          <div>
+            <label>Language</label>
+            <p>{{ user.language }}</p>
+          </div>
+
+          <div>
+            <label>Time Zone</label>
+            <p>{{ user.timezone }}</p>
+          </div>
+
+          <div>
+            <label>Verification ID</label>
+            <p>{{ user.verificationId }}</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>

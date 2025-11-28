@@ -1,0 +1,99 @@
+.dashboard {
+  height: 100vh;
+  background: #f7f7fb;
+  font-family: system-ui, sans-serif;
+}
+
+.content {
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-mini {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-sm {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.grid {
+  margin-top: 25px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  grid-column: span 2;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.card.full {
+  grid-column: span 2;
+}
+
+/* Profile card */
+.profile-flex {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.avatar-lg {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+}
+
+.edit-btn,
+.add-btn {
+  padding: 6px 14px;
+  background: #eef3ff;
+  color: #1a73e8;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit-btn:hover,
+.add-btn:hover {
+  background: #dce8ff;
+}
+
+/* Account details grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+label {
+  font-size: 13px;
+  color: #777;
+}
+
+p {
+  margin: 4px 0;
+  font-size: 15px;
+}
+
+.joined {
+  color: #999;
+  font-size: 13px;
+}

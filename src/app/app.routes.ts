@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { Profile } from './profile/profile';
 import { Dashboard } from './dashboard/dashboard';
 import { Leaderboard } from './leaderboard/leaderboard';
 import { authGuardGuard } from './auth-guard-guard';
+import { Details } from './user/details/details';
 
 export const routes: Routes = [
     {
@@ -11,7 +11,7 @@ export const routes: Routes = [
     },
     {
         path:'details',
-        component:Profile,
+        component:Details,
         canActivate:[authGuardGuard]
     },
     {
