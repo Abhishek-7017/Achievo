@@ -16,23 +16,25 @@ jobs:
       contents: read #This is required for actions/checkout
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js version
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: '24.x'
 
-      - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build --if-present
+      - name: Install Dependencies
+        run: npm install
 
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
+      - name: Build Angular App
+        run: npm run build --if-present -- --configuration production
+
+      - name: Upload Artifact for Deployment
+        uses: actions/upload-artifact@v3
         with:
-          name: node-app
-          path: .
+          name: angular-app
+          path: dist/**  # Angular dist folder
 
   deploy:
     runs-on: ubuntu-latest
@@ -42,24 +44,15 @@ jobs:
       contents: read #This is required for actions/checkout
 
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
         with:
-          name: node-app
-      
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_CFE5D3BB387F47B49D4BEAE0940295D0 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FCCD92D7DF6947128926686880A77DF4 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_0D864E08F57047BAA419E43DD302DEE4 }}
+          name: angular-app
+          path: .
 
-      - name: 'Deploy to Azure Web App'
-        id: deploy-to-webapp
+      - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'achievo'
-          slot-name: 'Production'
+          app-name: YOUR_AZURE_WEBAPP_NAME
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: .
-
-          
