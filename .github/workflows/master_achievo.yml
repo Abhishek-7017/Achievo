@@ -20,7 +20,6 @@ jobs:
           node-version: 20
 
       - name: Install Dependencies
-        working-directory: client
         run: npm install
 
       - name: Build Angular App
@@ -30,7 +29,8 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: client/dist/achievo/browser
+          folder: dist/achievo/browser
           clean: true
+
 
 
