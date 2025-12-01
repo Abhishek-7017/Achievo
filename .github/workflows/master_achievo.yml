@@ -29,10 +29,11 @@ jobs:
         run: ls -R dist || echo "dist folder not found"
 
 
-      #- name: Deploy to GitHub Pages
-        #uses: JamesIves/github-pages-deploy-action@v4
-        #with:
-          #branch: gh-pages
-          #folder: dist/Achievo
-          #clean: true
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist/Achievo/browser
+          clean: true
+
 
