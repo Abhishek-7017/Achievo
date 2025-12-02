@@ -15,7 +15,7 @@ export class AuthService {
 
   // -------------------- LOGIN --------------------
   login(credentials: { userName: string; password: string }): Observable<any> {
-    return this.http.post(`${this.baseUrl}login`, credentials).pipe(
+    return this.http.post(`${this.baseUrl}auth/login`, credentials).pipe(
       tap((res: any) => {
         if (res?.accessToken) {
           localStorage.setItem('jwt', res.accessToken);
@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   register(data: { userName: string; password: string }): Observable<any> {
-    return this.http.post(`${this.baseUrl}register`, data).pipe(
+    return this.http.post(`${this.baseUrl}auth/register`, data).pipe(
       tap((res: any) => {
         if (res?.accessToken) {
           localStorage.setItem('jwt', res.accessToken);
