@@ -1,0 +1,36 @@
+.field-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.readonly-text {
+  padding: 8px 0;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.input-box {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+  outline: none;
+}
+
+.input-box:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15);
+}
+
+.error {
+  color: #dc2626;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}

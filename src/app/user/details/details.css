@@ -1,30 +1,84 @@
-.dashboard {
-  height: 100vh;
-  background: #f7f7fb;
-  font-family: system-ui, sans-serif;
+.container {
+  max-width: 900px;
+  margin: auto;
 }
 
-.content {
-  padding: 30px;
-  overflow-y: auto;
-}
-
-.content-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.user-mini {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.avatar-sm {
-  width: 32px;
-  height: 32px;
+.profile-pic {
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.role-text {
+  color: #64748b;
+  margin: 4px 0 0;
+}
+
+.points {
+  margin-left: auto;
+  text-align: center;
+  background: #4f46e5;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 12px;
+  min-width: 85px;
+}
+
+.points span {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.edit-btn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: #4f46e5;
+  margin: 10px 10px 0px 0px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+
+/* ACTION BAR */
+.action-bar {
+  margin-top: 25px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.cancel-btn {
+  background: #e2e8f0;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.save-btn {
+  background: #4f46e5;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.1rem;
 }
 
 .grid {
@@ -35,10 +89,11 @@
 }
 
 .card {
-  background: white;
+  position: relative;
+  background: gainsboro;
   padding: 20px;
   border-radius: 14px;
-  grid-column: span 2;
+  grid-column: span 1;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
@@ -46,54 +101,3 @@
   grid-column: span 2;
 }
 
-/* Profile card */
-.profile-flex {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  margin-top: 15px;
-}
-
-.avatar-lg {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-}
-
-.edit-btn,
-.add-btn {
-  padding: 6px 14px;
-  background: #eef3ff;
-  color: #1a73e8;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.edit-btn:hover,
-.add-btn:hover {
-  background: #dce8ff;
-}
-
-/* Account details grid */
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}
-
-label {
-  font-size: 13px;
-  color: #777;
-}
-
-p {
-  margin: 4px 0;
-  font-size: 15px;
-}
-
-.joined {
-  color: #999;
-  font-size: 13px;
-}

@@ -1,82 +1,64 @@
-<div class="dashboard">
-  <!-- MAIN CONTENT -->
-  <main class="content">
+<div class="container" *ngIf="!loading(); else loadingTpl">
 
-    <div class="content-header">
-      <h1>Profile</h1>
+  <div class="grid">
 
-      <div class="user-mini">
-        <img class="avatar-sm" src="./Sample_profile.png" alt="Avatar">
-        <span>{{ user.firstName }}</span>
+    <!-- HEADER CARD -->
+    <div class="card full">
+      <img class="profile-pic" [src]="employee.profilePicUrl" alt="Profile" />
+
+      <h2>{{ employee.fullName }}</h2>
+      <p class="role-text">{{ employee.role }}</p>
+      
+      <button *ngIf="!editMode()" class="edit-btn" (click)="enterEditMode()">
+        Edit
+      </button>
+
+      <div class="points">
+        <span>{{ employee.points }}</span>
+        <label>Points</label>
       </div>
     </div>
 
-    <!-- PROFILE SECTIONS -->
-    <div class="grid">
+    <section class="card">
+      <h3>Basic Details</h3>
+      <app-achievo-input label="Full Name" placeholder="Enter full name" [control]="fullNameCtrl"
+        [editMode]="editMode()">
+      </app-achievo-input>
+      <app-achievo-input label="Role" placeholder="Enter role" [control]="roleCtrl" [editMode]="editMode()">
+      </app-achievo-input>
+      <app-achievo-input label="Department" placeholder="Enter department" [control]="departmentCtrl"
+        [editMode]="editMode()">
+      </app-achievo-input>
+    </section>
 
-      <!-- Profile Card -->
-      <section class="card">
-        <h3>Your profile</h3>
-        <p class="joined">Joined {{ user.joined }}</p>
+    <section class="card">
+      <h3>Contact Details</h3>
+      <app-achievo-input label="Email" placeholder="Enter email" type="email" [control]="emailCtrl"
+        [editMode]="editMode()">
+      </app-achievo-input>
+      <app-achievo-input label="Phone" placeholder="Enter phone number" [control]="phoneCtrl" [editMode]="editMode()">
+      </app-achievo-input>
+    </section>
 
-        <div class="profile-flex">
-          <img class="avatar-lg" [src]="user.profilePic">
+    <section class="card full">
+      <h3>Addresses</h3>
+    </section>
 
-          <div>
-            <h2>{{ user.firstName }} {{ user.lastName }}</h2>
-            <button class="edit-btn">Edit</button>
-          </div>
-        </div>
-      </section>
+    <!-- SAVE / CANCEL -->
 
-      <!-- Address Card -->
-      <section class="card">
-        <h3>Address</h3>
-        <p>{{ user.address }}</p>
-        <p>{{ user.city }}, {{ user.state }} {{ user.zip }}</p>
-        <p>{{ user.country }}</p>
-      </section>
+    <div class="action-bar" *ngIf="editMode()">
+        <button class="cancel-btn" (click)="cancelEdit()">Cancel</button>
 
-      <!-- Emails -->
-      <section class="card">
-        <h3>Emails</h3>
-        <div class="field-row">
-          <span>{{ user.email }}</span>
-          <button class="add-btn">Add Email</button>
-        </div>
-      </section>
-
-      <!-- Phone Number -->
-      <section class="card">
-        <h3>Phone Number</h3>
-        <div class="field-row">
-          <span>{{ user.phone }}</span>
-          <button class="add-btn">Add Phone</button>
-        </div>
-      </section>
-
-      <!-- Account Options -->
-      <section class="card full">
-        <h3>Account Options</h3>
-
-        <div class="info-grid">
-          <div>
-            <label>Language</label>
-            <p>{{ user.language }}</p>
-          </div>
-
-          <div>
-            <label>Time Zone</label>
-            <p>{{ user.timezone }}</p>
-          </div>
-
-          <div>
-            <label>Verification ID</label>
-            <p>{{ user.verificationId }}</p>
-          </div>
-        </div>
-      </section>
-
+        <button class="save-btn" (click)="saveChanges()">
+          <span *ngIf="!saving()">Save Changes</span>
+          <span *ngIf="saving()">Saving...</span>
+        </button>
     </div>
-  </main>
+
+  </div>
+
 </div>
+
+<ng-template #loadingTpl>
+  <div class="loading">Loading employee details...</div>
+</ng-template>
