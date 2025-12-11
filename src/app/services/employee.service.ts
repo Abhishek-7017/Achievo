@@ -6,32 +6,33 @@ import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class EmployeeService {
-  // private mockEmployee: Employee = {
-  //   id: "EMP123",
-  //   fullName: "Abhishek Varshney",
-  //   email: "abhishek@example.com",
-  //   phone: "+91 9876543210",
-  //   role: "Software Developer",
-  //   department: "Engineering",
-  //   points: 2890,
-  //   profilePicUrl: "profile.png"
-  // };
 
   private readonly http = inject(HttpClient);
   private readonly baseUrl = environment.apiUrl;
 
   getEmployee(userName:string):Observable<Employee> {
-    const url = `${this.baseUrl}/api/users?userName=${encodeURIComponent(userName)}`;
+    const url = `${this.baseUrl}user?userName=${encodeURIComponent(userName)}`;
     return this.http
       .get<Employee>(url)
       .pipe(catchError(err => this.handleError(err)));
   }
 
   updateEmployee(request: Employee):Observable<Employee> {
-    const url = `${this.baseUrl}/api/users/updateDetails`;
+    const url = `${this.baseUrl}user`;
 
+    var req = {
+      "userName": "system",
+      "email": request.email,
+      "displayName": request.fullName,
+      "joiningDate": "2025-12-11T11:00:41.720Z",
+      "isActive": true,
+      "totalPoints": 100,
+      "role": [
+        "SDE"
+      ]
+    };
     return this.http
-      .put<Employee>(url, request)
+      .put<Employee>(url, req)
       .pipe(catchError(err => this.handleError(err)));
   }
   private handleError(error: HttpErrorResponse) {

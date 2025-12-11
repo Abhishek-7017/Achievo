@@ -1,5 +1,5 @@
 import { Component, Input, } from '@angular/core';
-import { FormControl, ReactiveFormsModule, } from '@angular/forms';
+import { AbstractControl, FormControl, ReactiveFormsModule, } from '@angular/forms';
 
 @Component({
   selector: 'app-achievo-input',
@@ -8,9 +8,9 @@ import { FormControl, ReactiveFormsModule, } from '@angular/forms';
   styleUrl: './achievo-input.css'
 })
 export class AchievoInput {
-  @Input() label!: string;
+  @Input() label: string='';
   @Input() placeholder = '';
-  @Input() control!: FormControl<any>;
+  @Input() control!: AbstractControl;
   @Input() editMode = false;
   @Input() type: string = "text";
 }

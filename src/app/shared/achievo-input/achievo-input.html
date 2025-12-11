@@ -4,7 +4,7 @@
   <!-- READ ONLY -->
    @if (!editMode) {
      <div class="readonly-text">
-       {{ control.value || '—' }}
+       {{ control.value }}
      </div>
    }
 
@@ -16,7 +16,7 @@
       [type]="type"
       class="input-box"
       [placeholder]="placeholder"
-      [formControl]="control"
+      [formControl]="$any(control)"
       />
       
       @if (control.invalid && control.touched) {

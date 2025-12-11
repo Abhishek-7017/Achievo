@@ -4,7 +4,7 @@
 
     <!-- HEADER CARD -->
     <div class="card full">
-      <img class="profile-pic" [src]="employee.profilePicUrl" alt="Profile" />
+      <img class="profile-pic" src="profile.png" alt="Profile" />
 
       <h2>{{ employee.fullName }}</h2>
       <p class="role-text">{{ employee.role }}</p>
@@ -14,29 +14,29 @@
       </button>
 
       <div class="points">
-        <span>{{ employee.points }}</span>
+        <span>{{ employee.totalPoints }}</span>
         <label>Points</label>
       </div>
     </div>
 
     <section class="card">
       <h3>Basic Details</h3>
-      <app-achievo-input label="Full Name" placeholder="Enter full name" [control]="fullNameCtrl"
+      <app-achievo-input label="Full Name" placeholder="Enter full name" [control]="this.form.controls.fullName"
         [editMode]="editMode()">
       </app-achievo-input>
-      <app-achievo-input label="Role" placeholder="Enter role" [control]="roleCtrl" [editMode]="editMode()">
+      <app-achievo-input label="Role" placeholder="Enter role" [control]="this.form.controls.role" [editMode]="editMode()">
       </app-achievo-input>
-      <app-achievo-input label="Department" placeholder="Enter department" [control]="departmentCtrl"
+      <app-achievo-input label="Department" placeholder="Enter department" [control]="this.form.controls.department"
         [editMode]="editMode()">
       </app-achievo-input>
     </section>
 
     <section class="card">
       <h3>Contact Details</h3>
-      <app-achievo-input label="Email" placeholder="Enter email" type="email" [control]="emailCtrl"
+      <app-achievo-input label="Email" placeholder="Enter email" type="email" [control]="this.form.controls.email"
         [editMode]="editMode()">
       </app-achievo-input>
-      <app-achievo-input label="Phone" placeholder="Enter phone number" [control]="phoneCtrl" [editMode]="editMode()">
+      <app-achievo-input label="Phone" placeholder="Enter phone number" [control]="this.form.controls.phone" [editMode]="editMode()">
       </app-achievo-input>
     </section>
 
